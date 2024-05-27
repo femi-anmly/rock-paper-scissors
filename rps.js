@@ -18,3 +18,78 @@ function getComputerChoice() {
     return choice;
 }
 
+
+// Create loop that repeatedly asks the question until an exact response is given
+// Initialize while loop
+// Set count to 0
+// Break while loop when count equals 1
+// Add 1 when playerChoice equals Rock, Paper, or Scissors
+// Set playerChoice to uppercase and check if it equals Rock, Paper, or Scissors
+function getHumanChoice() {
+    let count = 0;
+    while (count < 1) {
+        let playerChoice = prompt("Choose Rock, Paper, or Scissors");
+        playerChoice = playerChoice.toUpperCase();
+        if (playerChoice === "ROCK" || playerChoice === "PAPER" || playerChoice === "SCISSORS")
+        {
+            return playerChoice;
+            count++; 
+        }
+        else {
+            alert("Please choose one of the options.");
+        }
+    }
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+    humanChoice = humanChoice.substring(0,1) + humanChoice.slice(1).toLowerCase();
+
+    if (humanChoice === "Rock" && computerChoice === "Scissors")
+    {
+        humanScore++;
+        console.log("You lose! " + humanChoice + " beats " + computerChoice);
+    }
+
+    else if (humanChoice === "Scissors" && computerChoice === "Paper")
+    {
+        humanScore++;
+        console.log("You lose! " + humanChoice + " beats " + computerChoice);
+    }
+
+    else if (humanChoice === "Paper" && computerChoice === "Rock")
+    {
+        humanScore++;
+        console.log("You lose! " + humanChoice + " beats " + computerChoice);
+    }
+
+    else if (computerChoice === "Rock" && humanChoice === "Scissors")
+    {
+        computerScore++;
+        console.log("You lose! " + computerChoice + " beats " + humanChoice);
+    }
+
+    else if (computerChoice === "Scissors" && humanChoice === "Paper")
+    {
+        computerScore++;
+        console.log("You lose! " + computerChoice + " beats " + humanChoice);
+    }
+
+    else if (computerChoice === "Paper" && humanChoice === "Rock")
+    {
+        computerScore++;
+        console.log("You lose! " + computerChoice + " beats " + humanChoice);
+    }
+
+    else {
+        console.log("You tied!");
+    }   
+}
+
+const humanSelection = getHumanChoice();
+console.log(humanSelection);
+const computerSelection = getComputerChoice();
+console.log(computerSelection);
+playRound(humanSelection, computerSelection);
