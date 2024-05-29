@@ -41,20 +41,18 @@ function getHumanChoice() {
     }
 }
 
-    let humanScore = 0;
-    let computerScore = 0;
 
 
 
 
- const humanSelection = getHumanChoice();
- const computerSelection = getComputerChoice();
+
+
 
 
 function playGame() {
     let gameCount = 0;
-    humanScore = 0;
-    computerScore = 0;
+    let humanScore = 0;
+    let computerScore = 0;
     
 
     function playRound(humanChoice, computerChoice) {
@@ -103,6 +101,9 @@ function playGame() {
             console.log("You tied!");
         }   
     }
+
+    const humanSelection = null;
+    const computerSelection = null;
     
     while (gameCount < 5)
     {   
@@ -127,3 +128,7 @@ function playGame() {
 }
 
 playGame();
+
+
+// When humanSelection is initialized inside while function, it prompts the user 10 times. 
+// When humanSelection is initialized outside the while function, but inside the playGame function, it prompts the user 6 times. 
