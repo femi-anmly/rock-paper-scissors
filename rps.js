@@ -130,5 +130,3 @@ function playGame() {
 playGame();
 
 
-// When humanSelection is initialized inside while function, it prompts the user 10 times. 
-// When humanSelection is initialized outside the while function, but inside the playGame function, it prompts the user 6 times. 
