@@ -56,41 +56,41 @@ function getHumanChoice() {
         if (humanChoice === "Rock" && computerChoice === "Scissors")
         {
             //humanScore++;
-            console.log("You win! " + humanChoice + " beats " + computerChoice);
+            return("You win! " + humanChoice + " beats " + computerChoice);
         }
     
         else if (humanChoice === "Scissors" && computerChoice === "Paper")
         {
             //humanScore++;
-            console.log("You win! " + humanChoice + " beats " + computerChoice);
+            return("You win! " + humanChoice + " beats " + computerChoice);
         }
     
         else if (humanChoice === "Paper" && computerChoice === "Rock")
         {
             //humanScore++;
-            console.log("You win! " + humanChoice + " beats " + computerChoice);
+            return("You win! " + humanChoice + " beats " + computerChoice);
         }
     
         else if (computerChoice === "Rock" && humanChoice === "Scissors")
         {
             //computerScore++;
-            console.log("You lose! " + computerChoice + " beats " + humanChoice);
+            return("You lose! " + computerChoice + " beats " + humanChoice);
         }
     
         else if (computerChoice === "Scissors" && humanChoice === "Paper")
         {
             //computerScore++;
-            console.log("You lose! " + computerChoice + " beats " + humanChoice);
+            return("You lose! " + computerChoice + " beats " + humanChoice);
         }
     
         else if (computerChoice === "Paper" && humanChoice === "Rock")
         {
             //omputerScore++;
-            console.log("You lose! " + computerChoice + " beats " + humanChoice);
+            return("You lose! " + computerChoice + " beats " + humanChoice);
         }
     
         else {
-            console.log("You tied!");
+            return("You tied! You both selected " + humanChoice);
         }   
     }
 
@@ -106,35 +106,41 @@ function getHumanChoice() {
    btnP.textContent = "Paper";
    btnS.textContent = "Scissors";
 
-   const div = document.createElement("div");
+   const div1 = document.createElement("div");
 
-   div.appendChild(btnR);
-   div.appendChild(btnP);
-   div.appendChild(btnS);
+   div1.appendChild(btnR);
+   div1.appendChild(btnP);
+   div1.appendChild(btnS);
+
+   
 
    const body = document.querySelector("body");
-   body.appendChild(div);
+   body.appendChild(div1);
 
    body.addEventListener('click', (event) => {
         let target = event.target;
         let humanSelection = '';
         let computerSelection = '';
+        const div2 = document.createElement("div");
 
         switch(target.id) {
             case 'R':
                  humanSelection = "Rock";
                  computerSelection = getComputerChoice();
-                playRound(humanSelection,computerSelection);
+                 div2.textContent = playRound(humanSelection,computerSelection);
+                 body.appendChild(div2);
                 break;
             case 'P':
                  humanSelection = "Paper";
                  computerSelection = getComputerChoice();
-                playRound(humanSelection,computerSelection);
+                 div2.textContent = playRound(humanSelection,computerSelection);
+                 body.appendChild(div2);
                 break;
             case 'S':
                  humanSelection = "Scissors";
                  computerSelection = getComputerChoice();
-                playRound(humanSelection,computerSelection);
+                 div2.textContent = playRound(humanSelection,computerSelection);
+                 body.appendChild(div2);
                 break;
         }
    })
